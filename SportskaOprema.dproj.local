@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/08/30 17:30:28.000.275,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/30 17:30:40.000.953,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.fmx</Transaction>
+    <Transaction>2024/08/30 17:30:40.000.953,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.pas</Transaction>
+    <Transaction>2024/08/30 17:32:46.000.426,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\main.pas</Transaction>
+    <Transaction>2024/08/30 17:32:46.000.426,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\main.fmx</Transaction>
+    <Transaction>2024/08/30 17:49:08.000.242,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/30 17:49:15.000.706,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracije.fmx</Transaction>
+    <Transaction>2024/08/30 17:49:15.000.706,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracije.pas</Transaction>
+    <Transaction>2024/08/30 17:49:20.000.466,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracije.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracija.pas</Transaction>
+    <Transaction>2024/08/30 17:49:20.000.466,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracije.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registracija.fmx</Transaction>
+    <Transaction>2024/08/30 17:57:28.000.810,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\SportskaOprema.dproj</Transaction>
+    <Transaction>2024/08/30 18:18:31.000.995,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/30 18:18:46.000.233,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2024/08/30 18:18:46.000.233,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\login.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:10:24.000.560,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:10:33.000.277,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registeredMain.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2024/08/31 11:10:33.000.277,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\registeredMain.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:15:59.000.542,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:16:03.000.788,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\dm.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:16:03.000.788,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\dm.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2024/08/31 11:29:00.000.516,=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/31 11:29:05.000.447,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\nalog.pas</Transaction>
+    <Transaction>2024/08/31 11:29:05.000.447,C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Projects\nalog.fmx</Transaction>
+  </Transactions>
+</BorlandProject>
