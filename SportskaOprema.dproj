@@ -150,6 +150,34 @@
             <Form>formNalog</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="kontakt.pas">
+            <Form>formKontakt</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="muskaOprema.pas">
+            <Form>formMuskaOprema</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="detalji.pas">
+            <Form>formDetalji</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="korpa.pas">
+            <Form>formKorpa</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="zenskaOprema.pas">
+            <Form>formZenskaOprema</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="brendovi.pas">
+            <Form>formBrendovi</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="artikli.pas">
+            <Form>formArtikli</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

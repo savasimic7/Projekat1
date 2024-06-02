@@ -11,10 +11,7 @@ object db: Tdb
   object dbSportskaOprema: TFDConnection
     Params.Strings = (
       'DriverID=SQLite'
-      
-        'Database=C:\Users\nikol\OneDrive\Documents\Embarcadero\Studio\Pr' +
-        'ojects\sportskaOpremaBaza.db')
-    Connected = True
+      'Database=D:\rad\Projects\sportskaOpremaBaza.db')
     LoginPrompt = False
     Left = 160
     Top = 144
