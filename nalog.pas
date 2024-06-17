@@ -23,8 +23,10 @@ type
     Textsifra: TText;
     textEmail: TText;
     buttonOdjava: TButton;
+    buttonNarudzbine: TButton;
     procedure buttonNazadClick(Sender: TObject);
     procedure buttonOdjavaClick(Sender: TObject);
+    procedure buttonNarudzbineClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,9 +38,15 @@ var
 
 implementation
 
-uses registeredMain, main;
+uses registeredMain, main, narudzbine;
 
 {$R *.fmx}
+
+procedure TformNalog.buttonNarudzbineClick(Sender: TObject);
+begin
+    formNalog.hide;
+    formNarudzbine.show;
+end;
 
 procedure TformNalog.buttonNazadClick(Sender: TObject);
 begin

@@ -18,17 +18,6 @@ object formDetalji: TformDetalji
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object buttonnazad: TButton
-      Align = Left
-      Size.Width = 80.000000000000000000
-      Size.Height = 50.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'priortoolbuttonbordered'
-      TabOrder = 0
-      Text = 'buttonnazad'
-      TextSettings.Trimming = None
-      OnClick = buttonnazadClick
-    end
   end
   object layoutclient: TLayout
     Align = Client
@@ -55,6 +44,7 @@ object formDetalji: TformDetalji
         Text = 'Muskarci'
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.Trimming = None
+        OnClick = buttonMuskarciClick
       end
       object buttonBrendovi: TButton
         Align = Left
@@ -68,6 +58,7 @@ object formDetalji: TformDetalji
         Text = 'Brendovi'
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.Trimming = None
+        OnClick = buttonBrendoviClick
       end
       object buttonZene: TButton
         Align = Left
@@ -81,6 +72,7 @@ object formDetalji: TformDetalji
         Text = 'Zene'
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.Trimming = None
+        OnClick = buttonZeneClick
       end
       object Line1: TLine
         Align = Bottom

@@ -178,6 +178,38 @@
             <Form>formArtikli</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="narudzbine.pas">
+            <Form>formNarudzbine</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="reklamacijaKorisnik.pas">
+            <Form>formReklamacijaK</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="adminMain.pas">
+            <Form>formAdminMain</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="zaposleniNalog.pas">
+            <Form>formZaposleniNalog</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="stanjeProizvoda.pas">
+            <Form>formStanjeProizvoda</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="nabavka.pas">
+            <Form>formNabavka</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="narudzbineAdmin.pas">
+            <Form>formNarudzbineAdmin</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="adminReklamacije.pas">
+            <Form>formAdminReklamacije</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

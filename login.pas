@@ -1,4 +1,4 @@
-unit login;
+﻿unit login;
 
 interface
 
@@ -36,19 +36,20 @@ var
 
 implementation
 
-uses main, dm, registeredMain, nalog;
+uses main, dm, registeredMain, adminMain, nalog, zaposleniNalog;
 
 {$R *.fmx}
 
 procedure TformLogin.buttonNazadClick(Sender: TObject);
 begin
-    formlogin.hide;
-    formMain.show;
+  formLogin.Hide;
+  formMain.Show;
 end;
 
 procedure TformLogin.buttonPrijavaClick(Sender: TObject);
 var
   pwd: string;
+  zaposleniStatus: Integer;
 begin
   if Trim(editEmail.Text) = '' then
   begin
@@ -57,18 +58,19 @@ begin
   end
   else if Trim(editSifra.Text) = '' then
   begin
-    ShowMessage('Molimo unesite sifru!');
+    ShowMessage('Molimo unesite šifru!');
     editSifra.SetFocus;
   end
   else
   begin
-    // Validacija
-    with db do
+    // Validacija korisničkog imena i šifre
+    with dm.db do
     begin
-      dbSportskaOprema.Open;
       qtemp.SQL.Clear;
-      qtemp.SQL.Text := 'SELECT * FROM korisnici WHERE email=' + QuotedStr(editEmail.Text);
+      qtemp.SQL.Text := 'SELECT * FROM korisnici WHERE email = :email';
+      qtemp.ParamByName('email').AsString := editEmail.Text;
       qtemp.Open;
+
       if qtemp.RecordCount = 0 then
       begin
         ShowMessage('Email ne postoji!');
@@ -77,22 +79,43 @@ begin
       else
       begin
         pwd := qtemp.FieldByName('sifra').AsString;
+        zaposleniStatus := qtemp.FieldByName('zaposleni').AsInteger;
+
         if pwd = editSifra.Text then
         begin
-          // Prebacivanje podataka na formu za nalog
-          formNalog.textImePrezime.Text := 'Ime i Prezime: ' + qtemp.FieldByName('imePrezime').AsString;
-          formNalog.textEmail.Text := 'Email: ' + qtemp.FieldByName('email').AsString;
-          formNalog.textSifra.Text := '�ifra: ' + qtemp.FieldByName('sifra').AsString;
-          formNalog.textTelefon.Text := 'Telefon: ' + qtemp.FieldByName('telefon').AsString;
-          formNalog.TextAdresa.Text := 'Adresa: ' + qtemp.FieldByName('adresa').AsString;
-          formNalog.textPol.Text := 'Pol: ' + qtemp.FieldByName('pol').AsString;
+          // Provera statusa korisnika (0 = običan korisnik, 1 = zaposleni)
+          if zaposleniStatus = 1 then
+          begin
+                      formZaposleniNalog.textImePrezime.Text := 'Ime i Prezime: ' + qtemp.FieldByName('imePrezime').AsString;
+            formZaposleniNalog.textEmail.Text := 'Email: ' + qtemp.FieldByName('email').AsString;
+            formZaposleniNalog.textSifra.Text := 'Šifra: ' + qtemp.FieldByName('sifra').AsString;
+            formZaposleniNalog.textTelefon.Text := 'Telefon: ' + qtemp.FieldByName('telefon').AsString;
+            formZaposleniNalog.TextAdresa.Text := 'Adresa: ' + qtemp.FieldByName('adresa').AsString;
+            formZaposleniNalog.textPol.Text := 'Pol: ' + qtemp.FieldByName('pol').AsString;
+            // Korisnik je zaposleni, otvori admin formu
+            formLogin.Hide;
+            formAdminMain.Show;
+          end
+          else
+          begin
+            // Korisnik je običan korisnik, otvori formu za registrovane korisnike
+            // Prebacivanje podataka na formu za nalog
+            formNalog.textImePrezime.Text := 'Ime i Prezime: ' + qtemp.FieldByName('imePrezime').AsString;
+            formNalog.textEmail.Text := 'Email: ' + qtemp.FieldByName('email').AsString;
+            formNalog.textSifra.Text := 'Šifra: ' + qtemp.FieldByName('sifra').AsString;
+            formNalog.textTelefon.Text := 'Telefon: ' + qtemp.FieldByName('telefon').AsString;
+            formNalog.TextAdresa.Text := 'Adresa: ' + qtemp.FieldByName('adresa').AsString;
+            formNalog.textPol.Text := 'Pol: ' + qtemp.FieldByName('pol').AsString;
 
-          formLogin.Hide;
-          formRegMain.Show;
+
+
+            formLogin.Hide;
+            formRegMain.Show;
+          end;
         end
         else
         begin
-          ShowMessage('Pogre�na �ifra!');
+          ShowMessage('Pogrešna šifra!');
           editSifra.SetFocus;
         end;
       end;
@@ -101,3 +124,4 @@ begin
 end;
 
 end.
+

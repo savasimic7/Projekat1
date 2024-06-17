@@ -10,7 +10,6 @@ uses
 type
   TformDetalji = class(TForm)
     layoutBottom: TLayout;
-    buttonnazad: TButton;
     layoutclient: TLayout;
     layoutTop: TLayout;
     Text1: TText;
@@ -43,6 +42,9 @@ type
     procedure buttonSmanjiKolicinuClick(Sender: TObject);
     procedure buttonDodajUKorpuClick(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure buttonMuskarciClick(Sender: TObject);
+    procedure buttonZeneClick(Sender: TObject);
+    procedure buttonBrendoviClick(Sender: TObject);
   private
     procedure AžurirajKolicinu(Korak: Integer);
     function DohvatiOdabranuVelicinu: string; // Nova funkcija za odabranu veličinu
@@ -55,11 +57,17 @@ var
 
 implementation
 
-uses muskaOprema, nalog, korpa;
+uses muskaOprema, nalog, korpa, zenskaOprema, brendovi;
 
 {$R *.fmx}
 
 // Procedura za dodavanje proizvoda u korpu
+procedure TformDetalji.buttonBrendoviClick(Sender: TObject);
+begin
+    formDetalji.hide;
+    formBrendovi.show;
+end;
+
 procedure TformDetalji.buttonDodajUKorpuClick(Sender: TObject);
 var
   NoviProizvod: TProizvod;
@@ -88,8 +96,12 @@ begin
   // Dodaj proizvod u korpu
   formKorpa.DodajUkorpu(NoviProizvod);
   ShowMessage('Proizvod je dodan u korpu sa veličinom: ' + Velicina);
-  formDetalji.hide;
-  formKorpa.show;
+end;
+
+procedure TformDetalji.buttonMuskarciClick(Sender: TObject);
+begin
+    formDetalji.hide;
+    formMuskaOprema.show;
 end;
 
 // Funkcija za dohvatanje odabrane veličine
@@ -135,6 +147,12 @@ end;
 procedure TformDetalji.buttonSmanjiKolicinuClick(Sender: TObject);
 begin
   AžurirajKolicinu(-1);  // Smanji količinu za 1
+end;
+
+procedure TformDetalji.buttonZeneClick(Sender: TObject);
+begin
+    formdetalji.hide;
+    formZenskaOprema.show;
 end;
 
 // Funkcija za ažuriranje količine

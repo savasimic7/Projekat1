@@ -65,7 +65,7 @@ begin
   with dm.db do
   begin
     // Upis nove narudžbine
-    qtemp.SQL.Text := 'INSERT INTO narudzbine (email) VALUES (:email)';
+    qtemp.SQL.Text := 'INSERT INTO narudzbine (email, datum_narudzbine) VALUES (:email, CURRENT_TIMESTAMP)';
     qtemp.ParamByName('email').AsString := KorisnikEmail;
     qtemp.ExecSQL;
 
@@ -80,13 +80,14 @@ begin
   begin
     with dm.db do
     begin
-      qtemp.SQL.Text := 'INSERT INTO proizvodi_u_narudzbini (narudzbina_id, naziv_proizvoda, velicina, kolicina, cena) ' +
-                        'VALUES (:narudzbina_id, :naziv_proizvoda, :velicina, :kolicina, :cena)';
+      qtemp.SQL.Text := 'INSERT INTO proizvodi_u_narudzbini (narudzbina_id, naziv_proizvoda, velicina, kolicina, cena, email) ' +
+                        'VALUES (:narudzbina_id, :naziv_proizvoda, :velicina, :kolicina, :cena, :email)';
       qtemp.ParamByName('narudzbina_id').AsInteger := NarudzbinaID;
       qtemp.ParamByName('naziv_proizvoda').AsString := ListaProizvoda[I].Naziv;
       qtemp.ParamByName('velicina').AsString := ListaProizvoda[I].Velicina;  // Veličina proizvoda
       qtemp.ParamByName('kolicina').AsInteger := ListaProizvoda[I].Kolicina;
       qtemp.ParamByName('cena').AsFloat := ListaProizvoda[I].Cena;
+      qtemp.ParamByName('email').AsString := KorisnikEmail;  // Dodaj email korisnika
       qtemp.ExecSQL;
     end;
   end;
@@ -98,7 +99,6 @@ begin
   SetLength(ListaProizvoda, 0);
   TextUkupnaCena.Text := 'Ukupna cena: 0 RSD';
 end;
-
 
 procedure TformKorpa.DodajUkorpu(Proizvod: TProizvod);
 var

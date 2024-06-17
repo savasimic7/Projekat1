@@ -223,6 +223,7 @@ begin
         formDetalji.TextCenaP.Text := 'Cena: ' + qtemp.FieldByName('cena').AsString + ' RSD';
       end;
 
+      formMuskaOprema.hide;
       formDetalji.ShowModal;
     end;
   end;
@@ -230,7 +231,8 @@ end;
 
 procedure TformMuskaOprema.buttonnazadClick(Sender: TObject);
 begin
-  Close;
+  formMuskaOprema.hide;
+  formRegmain.show;
 end;
 
 procedure TformMuskaOprema.Image1Click(Sender: TObject);
@@ -241,19 +243,20 @@ end;
 
 procedure TformMuskaOprema.Image3Click(Sender: TObject);
 begin
-  Close;
+  formMuskaOprema.hide;
+  formNalog.show;
 end;
 
 procedure TformMuskaOprema.buttonZeneClick(Sender: TObject);
 begin
   formZenskaOprema.Show;
-  Close;
+  formMuskaOprema.hide;
 end;
 
 procedure TformMuskaOprema.buttonBrendoviClick(Sender: TObject);
 begin
   formBrendovi.Show;
-  Close;
+  formMuskaOprema.hide;
 end;
 
 end.
