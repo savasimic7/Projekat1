@@ -20,7 +20,6 @@ type
     Text5: TText;
     Text6: TText;
     Text7: TText;
-    Text8: TText;
     Naziv: TText;
     Layout4: TLayout;
     editNapomena: TEdit;
@@ -31,7 +30,6 @@ type
     layoutTop: TLayout;
     Text1: TText;
     Image3: TImage;
-    DateEdit1: TDateEdit;
     editStatus: TEdit;
     editOpisProblema: TEdit;
     procedure FormShow(Sender: TObject);
@@ -52,7 +50,7 @@ var
 
 implementation
 
-uses dm, adminMain;
+uses dm, adminMain, nalog;
 
 {$R *.fmx}
 
@@ -71,7 +69,7 @@ end;
 procedure TformAdminReklamacije.Image3Click(Sender: TObject);
 begin
   formAdminReklamacije.Hide;
-  // Možeš ovde da dodaš funkcionalnost koja će prikazati željenu formu
+  formNalog.show;
 end;
 
 // Procedura za učitavanje svih reklamacija iz baze
@@ -81,7 +79,7 @@ begin
 
   with dm.db do
   begin
-    // Učitaj reklamacije iz tabele reklamacija
+    //reklamacije iz tabele reklamacije
     qtemp.SQL.Text := 'SELECT naziv_proizvoda, kolicina FROM reklamacije';
     qtemp.Open;
     while not qtemp.Eof do
@@ -96,30 +94,39 @@ end;
 procedure TformAdminReklamacije.PrikaziPodatkeOReklamaciji;
 var
   IzabranaStavka, NazivProizvoda: string;
+  PocetakNaziva, KrajNaziva: Integer;
 begin
   IzabranaStavka := ListBox1.Items[ListBox1.ItemIndex];  // Uzmi izabranu stavku
 
-  // Izvuci naziv proizvoda pre " - " (deo pre broja količine)
-  NazivProizvoda := Copy(IzabranaStavka, 1, Pos(' - ', IzabranaStavka) - 1);
+  // Pronađi gde počinje i gde se završava naziv proizvoda
+  PocetakNaziva := Pos('Naziv: ', IzabranaStavka) + Length('Naziv: ');
+  KrajNaziva := Pos(' - Kolicina:', IzabranaStavka);
 
-  with dm.db do
+  if (PocetakNaziva > 0) and (KrajNaziva > PocetakNaziva) then
   begin
-    qtemp.SQL.Text := 'SELECT * FROM reklamacije WHERE naziv_proizvoda = :naziv';
-    qtemp.ParamByName('naziv').AsString := NazivProizvoda;  // Koristi samo naziv proizvoda
-    qtemp.Open;
+    // Izvuci samo naziv proizvoda iz formata
+    NazivProizvoda := Copy(IzabranaStavka, PocetakNaziva, KrajNaziva - PocetakNaziva);
 
-    // Prikaži podatke u poljima za izmenu
-    editNaziv.Text := qtemp.FieldByName('naziv_proizvoda').AsString;
-    editKolicina.Text := qtemp.FieldByName('kolicina').AsString;
-    DateEdit1.Date := qtemp.FieldByName('datum_podnosenja_reklamacije').AsDateTime;
-    editEmail.Text := qtemp.FieldByName('email').AsString;
-    editStatus.Text := qtemp.FieldByName('status').AsString;
-    editOpisProblema.Text := qtemp.FieldByName('opis_problema').AsString;
-    editNapomena.Text := qtemp.FieldByName('napomena_admina').AsString;
+    with dm.db do
+    begin
+      qtemp.SQL.Text := 'SELECT * FROM reklamacije WHERE naziv_proizvoda LIKE :naziv';
+      qtemp.ParamByName('naziv').AsString := '%' + NazivProizvoda + '%';  // Koristi LIKE za fleksibilniju pretragu
+      qtemp.Open;
 
-    // Zapamti ID reklamacije
-    IzabranaReklamacijaID := qtemp.FieldByName('id').AsInteger;
-  end;
+      // Prikaži podatke u poljima za izmenu
+      editNaziv.Text := qtemp.FieldByName('naziv_proizvoda').AsString;
+      editKolicina.Text := qtemp.FieldByName('kolicina').AsString;
+      editEmail.Text := qtemp.FieldByName('email').AsString;
+      editStatus.Text := qtemp.FieldByName('status').AsString;
+      editOpisProblema.Text := qtemp.FieldByName('opis_problema').AsString;
+      editNapomena.Text := qtemp.FieldByName('napomena_admina').AsString;
+
+      // Zapamti ID reklamacije
+      IzabranaReklamacijaID := qtemp.FieldByName('id').AsInteger;
+    end;
+  end
+  else
+    ShowMessage('Greška pri parsiranju naziva proizvoda.');
 end;
 
 // Procedura za ažuriranje podataka izabrane reklamacije
@@ -127,10 +134,9 @@ procedure TformAdminReklamacije.buttonIzmeniClick(Sender: TObject);
 begin
   with dm.db do
   begin
-    qtemp.SQL.Text := 'UPDATE reklamacije SET naziv_proizvoda = :naziv, kolicina = :kolicina, datum_podnosenja_reklamacije = :datum, email = :email, status = :status, opis_problema = :opis, napomena_admina = :napomena WHERE reklamacija_id = :id';
+    qtemp.SQL.Text := 'UPDATE reklamacije SET naziv_proizvoda = :naziv, kolicina = :kolicina, email = :email, status = :status, opis_problema = :opis, napomena_admina = :napomena WHERE id = :id';
     qtemp.ParamByName('naziv').AsString := editNaziv.Text;
     qtemp.ParamByName('kolicina').AsString := editKolicina.Text;
-    qtemp.ParamByName('datum').AsDateTime := DateEdit1.Date;
     qtemp.ParamByName('email').AsString := editEmail.Text;
     qtemp.ParamByName('status').AsString := editStatus.Text;
     qtemp.ParamByName('opis').AsString := editOpisProblema.Text;

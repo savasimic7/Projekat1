@@ -24,17 +24,17 @@ type
     Text8: TText;
     Naziv: TText;
     Layout4: TLayout;
-    editStanje: TEdit;
-    editSumaCene: TEdit;
-    editKolicina: TEdit;
-    editVelicina: TEdit;
-    editCena: TEdit;
-    editNaziv: TEdit;
-    editEmail: TEdit;
     buttonIzmeni: TButton;
     layoutTop: TLayout;
     Text1: TText;
     Image3: TImage;
+    editNaziv: TEdit;
+    editVelicina: TEdit;
+    editKolicina: TEdit;
+    editCena: TEdit;
+    editSumaCene: TEdit;
+    editEmail: TEdit;
+    editStanje: TEdit;
     procedure FormShow(Sender: TObject);
     procedure Image3Click(Sender: TObject);
     procedure buttonNazadClick(Sender: TObject);
@@ -106,6 +106,13 @@ begin
     ParamByName('naziv').AsString := NazivProizvoda;
     Open;
 
+    // Proveri da li su podaci učitani
+    if RecordCount = 0 then
+    begin
+      ShowMessage('Nema podataka za ovaj proizvod!');
+      Exit;  // Ako nema podataka, izađi iz procedure
+    end;
+
     // Prikaži podatke u poljima za izmenu
     editNaziv.Text := FieldByName('naziv_proizvoda').AsString;
     editKolicina.Text := FieldByName('kolicina').AsString;
@@ -119,6 +126,7 @@ begin
     IzabranaNarudzbinaID := FieldByName('narudzbina_id').AsInteger;
   end;
 end;
+
 
 
 

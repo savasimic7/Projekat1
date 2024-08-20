@@ -133,6 +133,26 @@ object formNarudzbineAdmin: TformNarudzbineAdmin
         Size.Height = 343.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
+        object buttonIzmeni: TButton
+          Align = Center
+          Size.Width = 80.000000000000000000
+          Size.Height = 27.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Izmeni'
+          TextSettings.Trimming = None
+          OnClick = buttonIzmeniClick
+        end
+        object editNaziv: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 7
+          Position.Y = 8.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Size.Width = 242.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
         object editStanje: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
@@ -143,10 +163,20 @@ object formNarudzbineAdmin: TformNarudzbineAdmin
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
-        object editSumaCene: TEdit
+        object editEmail: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
           TabOrder = 5
+          Position.Y = 158.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Size.Width = 242.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object editSumaCene: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 4
           Position.Y = 128.000000000000000000
           Margins.Top = 8.000000000000000000
           Size.Width = 242.000000000000000000
@@ -156,38 +186,8 @@ object formNarudzbineAdmin: TformNarudzbineAdmin
         object editCena: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 4
-          Position.Y = 98.000000000000000000
-          Margins.Top = 8.000000000000000000
-          Size.Width = 242.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object editNaziv: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Top
-          TabOrder = 0
-          Position.Y = 8.000000000000000000
-          Margins.Top = 8.000000000000000000
-          Size.Width = 242.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object editVelicina: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Top
           TabOrder = 3
-          Position.Y = 38.000000000000000000
-          Margins.Top = 8.000000000000000000
-          Size.Width = 242.000000000000000000
-          Size.Height = 22.000000000000000000
-          Size.PlatformDefault = False
-        end
-        object editEmail: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
-          Align = Top
-          TabOrder = 2
-          Position.Y = 158.000000000000000000
+          Position.Y = 98.000000000000000000
           Margins.Top = 8.000000000000000000
           Size.Width = 242.000000000000000000
           Size.Height = 22.000000000000000000
@@ -196,22 +196,22 @@ object formNarudzbineAdmin: TformNarudzbineAdmin
         object editKolicina: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 1
+          TabOrder = 2
           Position.Y = 68.000000000000000000
           Margins.Top = 8.000000000000000000
           Size.Width = 242.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
         end
-        object buttonIzmeni: TButton
-          Align = Center
-          Size.Width = 80.000000000000000000
-          Size.Height = 27.000000000000000000
+        object editVelicina: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 1
+          Position.Y = 38.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Size.Width = 242.000000000000000000
+          Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 7
-          Text = 'Izmeni'
-          TextSettings.Trimming = None
-          OnClick = buttonIzmeniClick
         end
       end
     end

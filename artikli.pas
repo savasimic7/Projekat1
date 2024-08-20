@@ -171,8 +171,8 @@ begin
   // Parsiraj naziv i cenu iz Item.Text
   if Pos('-', Item.Text) > 0 then
   begin
-    naziv := Trim(Copy(Item.Text, 1, Pos('-', Item.Text) - 1)); // Pre '-'
-    cena := Trim(Copy(Item.Text, Pos('-', Item.Text) + 1, Length(Item.Text))); // Posle '-'
+    naziv := Trim(Copy(Item.Text, 1, Pos('-', Item.Text) - 1));
+    cena := Trim(Copy(Item.Text, Pos('-', Item.Text) + 1, Length(Item.Text)));
 
     // Sada radi upit u bazi da dobijemo dodatne detalje
     with dm.db do
@@ -198,9 +198,8 @@ begin
           formDetalji.TextCenaP.Text := 'Cena: N/A';
         end;
 
-        formDetalji.textKolicina.Text := '1';  // Inicijalna količina
+        formDetalji.textKolicina.Text := '1';
 
-        // Prebaci na formu 'Detalji'
         formArtikli.Hide;
         formDetalji.Show;
       end
